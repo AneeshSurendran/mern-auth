@@ -1,4 +1,4 @@
-import { errorHandler } from '../Utils/error.js';
+import { errorHandler } from '../utils/error.js';
 import User from '../models/user.model.js';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -73,4 +73,8 @@ res.status(201).json({message: "user created successfully"});
     }catch (error) {
         next(error)
     }
+ }
+
+ export const signout = (req, res) => {
+    res.clearCookie('access_token').status(200).json('Signout Success!!!');
  }
